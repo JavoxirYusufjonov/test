@@ -1,0 +1,29 @@
+/* .chat-container {
+    width: 400px;
+    height: 500px;
+    border: 1px solid #ccc;
+    overflow-y: scroll;
+    padding: 10px;
+  }
+  
+  .messages-container {
+    margin-bottom: 10px;
+  }
+  
+  .message {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+  }
+  
+  .send-message-container {
+    display: flex;
+  }
+  
+  .send-message-container input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5
+  }   */
