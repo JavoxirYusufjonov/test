@@ -33,9 +33,7 @@ const ChatApp = () => {
       .catch((error) => {
         console.log(error);
       },);
-  }
-
- 
+  } 
   const receiveNotification = useCallback(() => {
     let config = {
       method: 'get',
@@ -44,26 +42,47 @@ const ChatApp = () => {
       headers: {},
     };
   
-    axios.request(config)
-      .then((response) => {
-        console.log('API response:', response.data);
-        if (response.data.messages && response.data.messages.length > 0) {
-          const newMessages = response.data.messages.map(message => ({ sender: 'recipient', text: message.textMessage }));
-          setChatHistory(prevChatHistory => [...prevChatHistory, ...newMessages]);
+
+
+axios.request(config)
+.then((response) => {
+  console.log('API response:', response.data);
+  const responseObject = response.data;
+
+  if (Array.isArray(responseObject) && responseObject.length > 0) {
+    const firstObject = responseObject[0];
+    if (firstObject.hasOwnProperty('textMessage')) {
+      const textMessage = firstObject.textMessage;
+      const { senderId } = firstObject;
+      if (textMessage) {
+        const sender = senderId === recipientNumber + '@c.us' ? 'recipient' : 'user';
+        const newMessage = { sender, text: textMessage };
+        // Checking existing message ))
+        if (!chatHistory.some(message => message.sender === newMessage.sender && message.text === newMessage.text)) {
+          setChatHistory((prevChatHistory) => [...prevChatHistory, newMessage]);
         }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  }, [idInstance, apiTokenInstance]);
-  
+      }
+    } else {
+      console.log("No 'textMessage' found in the first object.");
+    }
+  } else {
+    console.log("Invalid API response or empty response.");
+  }
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+
+}, [idInstance, apiTokenInstance, recipientNumber, chatHistory]);
+
 
 useEffect(() => {
   const interval = setInterval(() => {
     receiveNotification();
   }, 3000);
   return () => clearInterval(interval);
-}, [receiveNotification]);
+}, [receiveNotification, recipientNumber]);
+
   return (
   
       <div className="chat-app">
