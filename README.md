@@ -12,7 +12,10 @@ Install the dependencies by running ****npm install**** in the project directory
 Set up a Green API account and obtain your ***instance ID and API token.***
 Update the idInstance and apiTokenInstance state variables in the ChatApp component with your instance ID and API token.
                                     
-                                    
+                                           
+                               https://github.com/JavoxirYusufjonov/test
+                                           
+                                           
                                     
                                            npm install
 Usage
