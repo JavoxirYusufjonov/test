@@ -3,7 +3,7 @@ WhatsApp Chat Application
 This is a simple chat application built with React that uses the Green API to send and receive messages via WhatsApp.
                                    
                                    
-                                  https://github.com/JavoxirYusufjonov/test
+                                git clone https://github.com/JavoxirYusufjonov/test
                                    
 Installation and Setup
                                                                                                   
