@@ -4,7 +4,7 @@ This is a simple chat application built with React that uses the Green API to se
                                    
                                    
                                    
-                                   *******************
+                                   
 Installation and Setup
                                                                                                   
 Clone this repository to your local machine.
@@ -14,7 +14,7 @@ Update the idInstance and apiTokenInstance state variables in the ChatApp compon
                                     
                                     
                                     
-                                    *******************
+                                           npm install
 Usage
 
 Start the application by running ***npm start*** in the project directory.
@@ -24,7 +24,7 @@ The chat history will update automatically as new messages are received.
                                    
                                    
                                    
-                                    *******************
+                                            npm start
 Contributing
 
 Contributions are welcome! If you have any ideas for improvements or new features, feel free to open an issue or submit a pull request.
